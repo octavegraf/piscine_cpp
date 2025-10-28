@@ -1,0 +1,6 @@
+*.o*
+objects
+
+#cpp_00
+megaphone
+
