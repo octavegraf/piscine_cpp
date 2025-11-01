@@ -8,9 +8,9 @@ OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
 all					:	$(NAME)
 
 $(NAME)				: $(OBJ)
-	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_FOLDER)%.o	: $(SRC_FOLDER)%.cpp $(HEADER)
+$(OBJ_FOLDER)%.o	: %.cpp
 	@mkdir -p $(OBJ_FOLDER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
