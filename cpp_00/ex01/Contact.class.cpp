@@ -1,27 +1,33 @@
 #include "Contact.class.hpp"
 
+using namespace std;
+
 Contact::Contact(string FirstName, string LastName, string Nickname, string PhoneNumber, string Secret) : FirstName(FirstName), LastName(LastName), Nickname(Nickname), PhoneNumber(PhoneNumber), Secret(Secret)
 {
-	if (gettimeofday(&this->CreationDate, NULL))
-		throw "gettimeofday failed";
 }
 
-string Contact::GetFirstName()
+string Contact::GetFirstName() const
 {
 	return (this->FirstName);
 }
 
-string Contact::GetLastName()
+string Contact::GetLastName() const
 {
 	return (this->LastName);
 }
 
-string Contact::GetNickname()
+string Contact::GetNickname() const
 {
 	return (this->Nickname);
 }
 
-unsigned long int Contact::GetCreationDate()
+void Contact::PrintContact() const
 {
-	return (this->CreationDate.tv_sec);
+	cout << "\n----------------------------------------\n";
+	cout << "First Name: " << this->FirstName << "\n";
+	cout << "Last Name: " << this->LastName << "\n";
+	cout << "Nickname: " << this->Nickname << "\n";
+	cout << "Phone Number: " << this->PhoneNumber << "\n";
+	cout << "Secret: " << this->Secret << "\n";
+	cout << "----------------------------------------\n";
 }

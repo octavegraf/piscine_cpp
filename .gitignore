@@ -1,6 +1,7 @@
 *.o*
 objects
+*.pch
 
 #cpp_00
 megaphone
-
+MyAwesomePhoneBook

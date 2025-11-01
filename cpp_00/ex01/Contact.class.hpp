@@ -7,11 +7,10 @@ class Contact
 {
 public:
 	Contact(string FirstName, string LastName, string Nickname, string PhoneNumber, string Secret);
-	string GetFirstName();
-	string GetLastName();
-	string GetNickname();
-	unsigned long int GetCreationDate();
-	void PrintContact();
+	string GetFirstName() const;
+	string GetLastName() const;
+	string GetNickname() const;
+	void PrintContact() const;
 
 private:
 	string FirstName;
@@ -19,7 +18,6 @@ private:
 	string Nickname;
 	string PhoneNumber;
 	string Secret;
-	struct timeval CreationDate;
 };
 
 #endif
