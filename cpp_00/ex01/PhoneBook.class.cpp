@@ -6,6 +6,7 @@ PhoneBook::PhoneBook()
 {
 	for (int i = 0; i < 8; i++)
 		Contacts[i] = NULL;
+	this->Index = 0;
 }
 void PhoneBook::AddContact()
 {
@@ -17,8 +18,7 @@ void PhoneBook::AddContact()
 	{
 		if (!getline(cin, PhoneNumber))
 			exit(1);
-		if (all_of(PhoneNumber.begin(), PhoneNumber.end(), [](unsigned char c)
-						{ return isdigit(c); }))
+		if (!ValidPhoneNumber(PhoneNumber))
 			break;
 		cout << "Invalid phone number. Try again.\n";
 	}
@@ -47,37 +47,48 @@ void PhoneBook::PrintContacts() const
 void PhoneBook::SearchContact() const
 {
 	string UserIndex;
-	int IntIndex = -1;
-	if (this->Index)
-	{
-		PrintContacts();
-		cout << "Please type an index.\n";
-	}
-	else
+	if (this->Index == 0)
 	{
 		cout << "PhoneBook empty. Add a contact first.\n";
 		return;
 	}
+	PrintContacts();
+	cout << "Please type an index.\n";
 	while (true)
 	{
-		if (!getline(cin, UserIndex)) exit(1);
+		if (!getline(cin, UserIndex))
+			exit(1);
 		try
 		{
-			IntIndex = stoi(UserIndex) - 1;
+			int IntIndex = stoi(UserIndex) - 1;
+			if (IntIndex >= 0 && IntIndex < 8 && IntIndex < this->Index)
+			{
+				if (Contacts[IntIndex] != NULL)
+					this->Contacts[IntIndex]->PrintContact();
+				break;
+			}
+			else
+			{
+				cout << "Wrong index. Try again\n";
+				continue;
+			}
 		}
 		catch (exception& e)
 		{
 			cout << "Not a number. Try again\n";
-		}
-		if ((IntIndex) >= 0 && (IntIndex) < 8 && (IntIndex) <= this->Index)
-		{
-			if (Contacts[IntIndex] != NULL)
-				this->Contacts[IntIndex]->PrintContact();
-			break;
-			cout << "Wrong index. Try again\n";
+			continue;
 		}
 	}
+}
 
+bool PhoneBook::ValidPhoneNumber(string PhoneNumber) const
+{
+	for (size_t i = 0; i < PhoneNumber.length(); ++i)
+	{
+		if (!isdigit(PhoneNumber[i]))
+			return (true);
+	}
+	return (false);
 }
 
 PhoneBook::~PhoneBook()

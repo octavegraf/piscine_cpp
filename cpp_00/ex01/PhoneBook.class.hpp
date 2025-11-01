@@ -3,6 +3,8 @@
 
 #include "MyAwesomePhoneBook.hpp"
 
+using namespace std;
+
 class PhoneBook
 {
 public:
@@ -12,8 +14,9 @@ public:
 	~PhoneBook();
 private:
 	class Contact *Contacts[8];
-	int Index = 0;
+	int Index;
 	void PrintContacts() const;
+	bool ValidPhoneNumber(string PhoneNumber) const;
 };
 
 #endif

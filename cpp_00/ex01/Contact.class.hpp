@@ -3,6 +3,8 @@
 
 #include "MyAwesomePhoneBook.hpp"
 
+using namespace std;
+
 class Contact
 {
 public:
