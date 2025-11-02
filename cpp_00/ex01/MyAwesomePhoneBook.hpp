@@ -17,7 +17,7 @@ class Contact;
 class PhoneBook;
 
 /**
- * @brief Will print String and truncate it and add a "." if it's longer than 10 char.
+ * @brief Will print String right aligned, truncate it and add a "." if it's longer than 10 char.
  * 
  * @param String String to print.
  */
