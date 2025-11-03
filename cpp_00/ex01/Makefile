@@ -2,7 +2,7 @@ CC					=	g++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
 NAME				=	MyAwesomePhoneBook
 CLASSES				=	Contact PhoneBook
-SRC					=	$(addsuffix .cpp, $(NAME) $(addsuffix .class, $(CLASSES)))
+SRC					=	$(addsuffix .cpp, $(NAME) $(CLASSES))
 OBJ_FOLDER			=	objects/
 OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
 

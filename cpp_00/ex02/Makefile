@@ -4,7 +4,7 @@ NAME				=	tests
 CLASSES				=	Account
 SRC					=	$(addsuffix .cpp, $(NAME) $(CLASSES))
 OBJ_FOLDER			=	objects/
-OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
+OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp =.o))
 
 all					:	$(NAME)
 

@@ -8,10 +8,8 @@
 #include <sys/time.h>
 #include <iomanip>
 
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
-
-using namespace std;
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 class Contact;
 class PhoneBook;
@@ -21,7 +19,7 @@ class PhoneBook;
  * 
  * @param String String to print.
  */
-void PrintTruncateAndRightAlign(string String);
+void PrintTruncateAndRightAlign(std::string String);
 /**
  * @brief Wait for user prompt for commands ADD, SEARCH and EXIT.
  * 
