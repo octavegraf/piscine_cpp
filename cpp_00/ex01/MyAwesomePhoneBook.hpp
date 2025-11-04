@@ -24,7 +24,8 @@ void PrintTruncateAndRightAlign(std::string String);
  * @brief Wait for user prompt for commands ADD, SEARCH and EXIT.
  * 
  * @param _PhoneBook PhoneBook class.
+ * @return true if EXIT command was given, false otherwise.
  */
-void SelectCommands(PhoneBook &_PhoneBook);
+bool SelectCommands(PhoneBook &_PhoneBook);
 
 #endif

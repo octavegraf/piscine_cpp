@@ -1,8 +1,9 @@
 #include "Contact.hpp"
 
 Contact::Contact(std::string FirstName, std::string LastName, std::string Nickname, std::string PhoneNumber, std::string Secret) : FirstName(FirstName), LastName(LastName), Nickname(Nickname), PhoneNumber(PhoneNumber), Secret(Secret)
-{
-}
+{}
+Contact::~Contact()
+{}
 
 std::string Contact::GetFirstName() const
 {

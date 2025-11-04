@@ -6,21 +6,22 @@ PhoneBook::PhoneBook()
 		Contacts[i] = NULL;
 	this->Index = 0;
 }
+
+PhoneBook::~PhoneBook()
+{
+	for (int i = 0; i < 8; i++)
+	{
+		if (this->Contacts && this->Contacts[i])
+			delete this->Contacts[i];
+	}
+}
 void PhoneBook::AddContact()
 {
-	std::string FirstName; std::cout << "First Name:\n"; if (!getline(std::cin, FirstName)) exit(1);
-	std::string LastName; std::cout << "Last Name:\n"; if (!getline(std::cin, LastName)) exit(1);
-	std::string Nickname; std::cout << "Nickname:\n"; if (!getline(std::cin, Nickname)) exit(1);
-	std::string PhoneNumber; std::cout << "Phone Number:\n";
-	while (true)
-	{
-		if (!getline(std::cin, PhoneNumber))
-			exit(1);
-		if (!ValidPhoneNumber(PhoneNumber))
-			break;
-		std::cout << "Invalid phone number. Try again.\n";
-	}
-	std::string Secret; std::cout << "Secret:\n"; if (!getline(std::cin, Secret)) exit(1);
+	std::string FirstName = ValidUserEntry("First Name:\n");
+	std::string LastName = ValidUserEntry("Last Name:\n");
+	std::string Nickname = ValidUserEntry("Nickname:\n");
+	std::string PhoneNumber = ValidPhoneNumber();
+	std::string Secret = ValidUserEntry("Secret:\n");
 	if (this->Index >= 7 && this->Contacts[this->Index % 8])
 		delete(this->Contacts[this->Index % 8]);
 	this->Contacts[this->Index % 8] = new Contact(FirstName, LastName, Nickname, PhoneNumber, Secret);
@@ -56,39 +57,49 @@ void PhoneBook::SearchContact() const
 	{
 		if (!getline(std::cin, UserIndex))
 			exit(1);
-		try
+		if (UserIndex.length() >= 2)
 		{
-			int IntIndex = stoi(UserIndex) - 1;
-			if (IntIndex >= 0 && IntIndex < 8 && IntIndex < this->Index)
-			{
-				if (Contacts[IntIndex] != NULL)
-					this->Contacts[IntIndex]->PrintContact();
-				break;
-			}
-			else
-			{
-				std::cout << "Wrong index. Try again\n";
-				continue;
-			}
+			std::cout << "Wrong index. Try again\n";
+			continue;
 		}
-		catch (std::exception& e)
+		int IntIndex = atoi(UserIndex.c_str()) - 1;
+		if (IntIndex >= 0 && IntIndex < 8 && IntIndex < this->Index)
 		{
-			std::cout << "Not a number. Try again\n";
+			if (Contacts[IntIndex] != NULL)
+				this->Contacts[IntIndex]->PrintContact();
+			break;
+		}
+		else
+		{
+			std::cout << "Wrong index. Try again\n";
 			continue;
 		}
 	}
 }
 
-bool PhoneBook::ValidPhoneNumber(std::string PhoneNumber) const
+std::string PhoneBook::ValidUserEntry(std::string Prompt)
 {
-	for (size_t i = 0; i < PhoneNumber.length(); ++i)
+	std::string Result;
+	while (true)
 	{
-		if (!isdigit(PhoneNumber[i]))
-			return (true);
+		std::cout << Prompt;
+		if (!getline(std::cin, Result))
+			continue;
+		if (!Result.size())
+			continue;
+		return (Result);
 	}
-	return (false);
 }
 
-PhoneBook::~PhoneBook()
+std::string PhoneBook::ValidPhoneNumber()
 {
+	std::string PhoneNumber;
+	while (true)
+	{
+		PhoneNumber = ValidUserEntry("Phone Number:\n");
+		for (size_t i = 0; i < PhoneNumber.length(); ++i)
+			if (!isdigit(PhoneNumber[i]))
+				continue;
+		return (PhoneNumber);
+	}
 }

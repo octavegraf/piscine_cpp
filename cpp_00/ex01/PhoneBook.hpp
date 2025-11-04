@@ -7,14 +7,15 @@ class PhoneBook
 {
 public:
 	PhoneBook();
+	~PhoneBook();
 	void AddContact();
 	void SearchContact() const;
-	~PhoneBook();
 private:
 	class Contact *Contacts[8];
 	int Index;
 	void PrintContacts() const;
-	bool ValidPhoneNumber(std::string PhoneNumber) const;
+	std::string ValidUserEntry(std::string Prompt);
+	std::string ValidPhoneNumber();
 };
 
 #endif

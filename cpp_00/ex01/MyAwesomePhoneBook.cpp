@@ -1,6 +1,5 @@
 #include "MyAwesomePhoneBook.hpp"
 
-
 void PrintTruncateAndRightAlign(std::string String)
 {
 	if (String.length() > 10)
@@ -11,7 +10,7 @@ void PrintTruncateAndRightAlign(std::string String)
 	std::cout.width(10); std::cout << std::right << String;
 }
 
-void SelectCommands(PhoneBook &_PhoneBook)
+bool SelectCommands(PhoneBook &_PhoneBook)
 {
 	std::string Command; std::cout << "Please type ADD, SEARCH or EXIT.\n";
 	if (!getline(std::cin, Command))
@@ -21,15 +20,17 @@ void SelectCommands(PhoneBook &_PhoneBook)
 	else if(!Command.compare("SEARCH"))
 		_PhoneBook.SearchContact();
 	else if (!Command.compare("EXIT"))
-		exit(0);
+		return true;
 	else
 		std::cout << "Wrong command. Try again.\n";
+	return false;
 }
 
 int main(void)
 {
-	PhoneBook PhoneBook;
-	while (1)
-		SelectCommands(PhoneBook);
+	PhoneBook *_PhoneBook = new PhoneBook();
+	while (SelectCommands(*_PhoneBook))
+		continue;
+	delete _PhoneBook;
 	return (0);
 }
