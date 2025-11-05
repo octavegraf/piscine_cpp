@@ -20,16 +20,14 @@ bool SelectCommands(PhoneBook &_PhoneBook)
 	else if(!Command.compare("SEARCH"))
 		_PhoneBook.SearchContact();
 	else if (!Command.compare("EXIT"))
-		return true;
-	else
-		std::cout << "Wrong command. Try again.\n";
-	return false;
+		return (true);
+	return (false);
 }
 
 int main(void)
 {
 	PhoneBook *_PhoneBook = new PhoneBook();
-	while (SelectCommands(*_PhoneBook))
+	while (!SelectCommands(*_PhoneBook))
 		continue;
 	delete _PhoneBook;
 	return (0);

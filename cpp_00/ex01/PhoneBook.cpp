@@ -94,12 +94,21 @@ std::string PhoneBook::ValidUserEntry(std::string Prompt)
 std::string PhoneBook::ValidPhoneNumber()
 {
 	std::string PhoneNumber;
+	bool ValidPhoneNumber;
 	while (true)
 	{
+		ValidPhoneNumber = true;
 		PhoneNumber = ValidUserEntry("Phone Number:\n");
 		for (size_t i = 0; i < PhoneNumber.length(); ++i)
+		{	
 			if (!isdigit(PhoneNumber[i]))
-				continue;
-		return (PhoneNumber);
+			{
+				ValidPhoneNumber = false;
+				break;
+			}
+		}
+		if (ValidPhoneNumber)
+			break;
 	}
+	return (PhoneNumber);
 }
