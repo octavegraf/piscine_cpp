@@ -1,6 +1,16 @@
 #include "Account.hpp"
 
-Account::Account()
+int Account::_nbAccounts = 0;
+
+Account::Account(int initial_deposit)
+{
+	_nbAccounts = 1;
+	_totalAmount = initial_deposit;
+	_totalNbDeposits = 1;
+	_totalNbWithdrawals = 0;
+}
+
+Account::~Account()
 {
 
 }
