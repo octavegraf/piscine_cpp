@@ -28,4 +28,6 @@ void PrintTruncateAndRightAlign(std::string String);
  */
 bool SelectCommands(PhoneBook &_PhoneBook);
 
+#define DOTTED_LINE "----------------------------------------"
+
 #endif
