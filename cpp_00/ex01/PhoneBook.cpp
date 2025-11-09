@@ -11,7 +11,7 @@ PhoneBook::~PhoneBook()
 {
 	for (int i = 0; i < 8; i++)
 	{
-		if (this->Contacts && this->Contacts[i])
+		if (this->Contacts[i])
 			delete this->Contacts[i];
 	}
 }
