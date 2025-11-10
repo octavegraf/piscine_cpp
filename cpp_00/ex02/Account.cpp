@@ -8,26 +8,6 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-Account::Account(int initial_deposit) : _amount(0), _nbDeposits(0), _nbWithdrawals(0)
-{
-	_nbAccounts++;
-	_amount += initial_deposit;
-	_totalAmount += initial_deposit;
-	_accountIndex = _nbAccounts - 1;
-	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";";
-	std::cout << "amount:" << _amount << ";";
-	std::cout << "created" << std::endl;
-}
-
-Account::~Account()
-{
-	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";";
-	std::cout << "amount:" << _amount << ";";
-	std::cout << "closed" << std::endl;
-}
-
 int	Account::getNbAccounts()
 {
 	return (_nbAccounts);
@@ -56,14 +36,24 @@ void Account::displayAccountsInfos()
 	std::cout << "deposits:" << getNbDeposits() << ";";
 	std::cout << "withdrawals:" << getNbWithdrawals() << std::endl;
 }
-
-void Account::_displayTimestamp()
+Account::Account(int initial_deposit) : _amount(0), _nbDeposits(0), _nbWithdrawals(0)
 {
-	char format_time[20];
-	time_t current_time = time(NULL);
-	struct tm *simple_time = localtime(&current_time);
-	strftime(format_time, 20, "[%Y%m%d_%I%M%S]", simple_time);
-	std::cout << format_time << " ";
+	_nbAccounts++;
+	_amount += initial_deposit;
+	_totalAmount += initial_deposit;
+	_accountIndex = _nbAccounts - 1;
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "created" << std::endl;
+}
+
+Account::~Account()
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "closed" << std::endl;
 }
 
 void Account::makeDeposit(int deposit)
@@ -110,4 +100,13 @@ void Account::displayStatus(void) const
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "deposits:" << _nbDeposits << ";";
 	std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
+}
+
+void Account::_displayTimestamp()
+{
+	char format_time[20];
+	time_t current_time = time(NULL);
+	struct tm *simple_time = localtime(&current_time);
+	strftime(format_time, 20, "[%Y%m%d_%I%M%S]", simple_time);
+	std::cout << format_time << " ";
 }
