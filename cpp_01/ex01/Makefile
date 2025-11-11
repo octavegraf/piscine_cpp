@@ -1,6 +1,6 @@
 CC					=	g++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
-NAME				=	Zombie
+NAME				=	MoarBrainz
 FILES				=	main Zombie zombieHorde
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
