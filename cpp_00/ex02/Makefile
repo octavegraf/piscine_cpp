@@ -1,8 +1,8 @@
 CC					=	g++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
-NAME				=	tests
-CLASSES				=	Account
-SRC					=	$(addsuffix .cpp, $(NAME) $(CLASSES))
+NAME				=	TheJobOfYourDreams
+FILES				=	Account tests
+SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
 OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
 
