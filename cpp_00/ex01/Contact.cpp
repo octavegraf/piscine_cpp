@@ -22,11 +22,11 @@ std::string Contact::GetNickname() const
 
 void Contact::PrintContact() const
 {
-	std::cout << "\n----------------------------------------\n";
-	std::cout << "First Name: " << this->FirstName << "\n";
-	std::cout << "Last Name: " << this->LastName << "\n";
-	std::cout << "Nickname: " << this->Nickname << "\n";
-	std::cout << "Phone Number: " << this->PhoneNumber << "\n";
-	std::cout << "Secret: " << this->Secret << "\n";
-	std::cout << "----------------------------------------\n";
+	std::cout << std::endl << DOTTED_LINE  << std::endl;
+	std::cout << "First Name: " << this->FirstName << std::endl;
+	std::cout << "Last Name: " << this->LastName << std::endl;
+	std::cout << "Nickname: " << this->Nickname << std::endl;
+	std::cout << "Phone Number: " << this->PhoneNumber << std::endl;
+	std::cout << "Secret: " << this->Secret << std::endl;
+	std::cout << DOTTED_LINE << std::endl;
 }

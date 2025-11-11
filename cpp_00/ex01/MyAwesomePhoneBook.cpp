@@ -12,7 +12,8 @@ void PrintTruncateAndRightAlign(std::string String)
 
 bool SelectCommands(PhoneBook &_PhoneBook)
 {
-	std::string Command; std::cout << "Please type ADD, SEARCH or EXIT.\n";
+	std::string Command;
+	std::cout << "Please type ADD, SEARCH or EXIT." << std::endl;
 	if (!getline(std::cin, Command))
 		exit(1);
 	if (!Command.compare("ADD"))
