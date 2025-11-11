@@ -1,9 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string Name) : Name(Name)
-{}
-
-Zombie::~Zombie()
+Zombie *newZombie(std::string name)
 {
-	std::cout << this->Name << ": killed.";
+	return (new Zombie(name));
 }
