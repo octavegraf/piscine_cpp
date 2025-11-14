@@ -1,6 +1,6 @@
-CC					=	g++
+CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
-NAME				=	UnnecessaryViolence
+NAME				=	Harl2
 FILES				=	main Harl
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/

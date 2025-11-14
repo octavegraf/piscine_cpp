@@ -1,10 +1,16 @@
 #include "Harl.hpp"
 
 Harl::Harl()
-{}
+{
+	this->actions[0] = std::pair<std::string, void (Harl::*)(void)>("DEBUG", &Harl::debug);
+	this->actions[1] = std::pair<std::string, void (Harl::*)(void)>("INFO", &Harl::info);
+	this->actions[2] = std::pair<std::string, void (Harl::*)(void)>("WARNING", &Harl::warning);
+	this->actions[3] = std::pair<std::string, void (Harl::*)(void)>("ERROR", &Harl::error);
+}
 
 Harl::~Harl()
-{}
+{
+}
 
 void Harl::complain(std::string level)
 {

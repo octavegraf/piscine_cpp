@@ -14,13 +14,7 @@ class Harl
 	void info(void);
 	void warning(void);
 	void error(void);
-	static std::pair<std::string, void (Harl::*)(void)> actions[] = 
-	{
-		std::pair<std::string, void (Harl::*)(void)>("DEBUG", &Harl::debug),
-		std::pair<std::string, void (Harl::*)(void)>("INFO", &Harl::info),
-		std::pair<std::string, void (Harl::*)(void)>("WARNING", &Harl::warning),
-		std::pair<std::string, void (Harl::*)(void)>("ERROR", &Harl::error)
-	};
+	std::pair<std::string, void (Harl::*)(void)> actions[4];
 };
 
 #endif
