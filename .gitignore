@@ -1,6 +1,8 @@
 *.o*
 objects
 *.pch
+test
+tests
 
 #cpp_00
 megaphone
@@ -12,3 +14,4 @@ Zombie
 MoarBrainz
 HiThisIsBrain
 UnnecessaryViolence
+SedIsForLosers
