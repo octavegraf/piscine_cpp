@@ -56,13 +56,13 @@ void PhoneBook::SearchContact() const
 	while (true)
 	{
 		if (!getline(std::cin, UserIndex))
-			exit(1);
+			std::exit(1);
 		if (UserIndex.length() >= 2)
 		{
 			std::cout << "Wrong index. Try again." << std::endl;
 			continue;
 		}
-		int IntIndex = atoi(UserIndex.c_str()) - 1;
+		int IntIndex = std::atoi(UserIndex.c_str()) - 1;
 		if (IntIndex >= 0 && IntIndex < 8 && IntIndex < this->Index)
 		{
 			if (Contacts[IntIndex] != NULL)
@@ -101,7 +101,7 @@ std::string PhoneBook::ValidPhoneNumber()
 		PhoneNumber = ValidUserEntry("Phone Number");
 		for (size_t i = 0; i < PhoneNumber.length(); ++i)
 		{	
-			if (!isdigit(PhoneNumber[i]))
+			if (!std::isdigit(PhoneNumber[i]))
 			{
 				ValidPhoneNumber = false;
 				break;

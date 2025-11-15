@@ -15,7 +15,7 @@ bool SelectCommands(PhoneBook &_PhoneBook)
 	std::string Command;
 	std::cout << "Please type ADD, SEARCH or EXIT." << std::endl;
 	if (!getline(std::cin, Command))
-		exit(1);
+		std::exit(1);
 	if (!Command.compare("ADD"))
 		_PhoneBook.AddContact();
 	else if(!Command.compare("SEARCH"))
