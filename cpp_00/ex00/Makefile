@@ -12,7 +12,9 @@ $(NAME)				: $(OBJ)
 
 $(OBJ_FOLDER)%.o	: %.cpp
 	@mkdir -p $(OBJ_FOLDER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -MMD -c $< -o $@
+
+-include $(OBJ_FOLDER)*.d
 
 clean				:
 	@rm -rf $(OBJ_FOLDER)
