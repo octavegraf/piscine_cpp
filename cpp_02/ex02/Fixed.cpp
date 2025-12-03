@@ -116,7 +116,7 @@ Fixed Fixed::operator*(const Fixed &other) const
 Fixed Fixed::operator/(const Fixed &other) const
 {
 	Fixed result;
-	result.setRawBits((FixedPoint / other.getRawBits()) * (1 << FractionalBits));
+	result.setRawBits((FixedPoint * (1 << FractionalBits)) / other.getRawBits());
 	return (result);
 }
 
