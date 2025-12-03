@@ -10,8 +10,12 @@ class Point
 	Point(const Point &other);
 	Point &operator=(const Point &other);
 	~Point();
+	float GetX() const;
+	float GetY() const;
 
 	private:
-	Fixed const x = 0;
-	Fixed const y = 0;
+	Fixed const x;
+	Fixed const y;
 };
+
+std::ostream &operator<<(std::ostream &out, const Point &point);

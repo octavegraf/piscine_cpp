@@ -1,7 +1,7 @@
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
-NAME				=	NowWeReTalking
-FILES				=	main Fixed
+NAME				=	BSP
+FILES				=	main bsp Fixed Point
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
 OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
