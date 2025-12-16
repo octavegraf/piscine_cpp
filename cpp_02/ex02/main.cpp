@@ -4,7 +4,7 @@
 int main(void)
 {
 
-	Fixed a;
+	Fixed a(1);
 	Fixed const b(Fixed(5.05f) * Fixed(2));
 	Fixed c(b - (0.1f));
 
@@ -28,10 +28,10 @@ int main(void)
 	std::cout << "b / a = " << (b / a) << std::endl;
 
 	std::cout << std::endl;
-	std::cout << "++a = " << ++a << std::endl;
 	std::cout << "a++ = " << a++ << std::endl;
-	std::cout << "--a = " << --a << std::endl;
+	std::cout << "++a = " << ++a << std::endl;
 	std::cout << "a-- = " << a-- << std::endl;
+	std::cout << "--a = " << --a << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "Min between a and b: " << Fixed::min(a, b) << std::endl;
