@@ -1,7 +1,7 @@
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
-NAME				=	AaaaandOPEN
-FILES				=	main ClapTrap
+NAME				=	RepetitiveWork
+FILES				=	main ClapTrap ScavTrap FragTrap
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
 OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
