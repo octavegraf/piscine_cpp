@@ -26,8 +26,3 @@ void Dog::makeSound() const
 {
 	std::cout << "« Waf »" << std::endl;
 }
-
-std::string Dog::getType() const
-{
-	return (type);
-}
