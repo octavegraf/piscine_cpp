@@ -1,7 +1,7 @@
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -Wshadow -std=c++98
 NAME				=	IDontWantToSetTheWorldOnFire
-FILES				=	main Animal Cat Dog WrongAnimal WrongCat
+FILES				=	main Animal Cat Dog WrongAnimal WrongCat Brain
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
 OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))

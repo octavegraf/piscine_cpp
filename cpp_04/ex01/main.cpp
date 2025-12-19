@@ -1,23 +1,25 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* k = new WrongCat();
-	const WrongAnimal* metatchoum = new WrongAnimal();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << k->getType() << " " << std::endl;
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << metatchoum->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	k->makeSound();
-	metatchoum->makeSound();
-	return (0);
+	Animal *arch[100];
+
+	for (int i = 0; i < 100; i++)
+	{
+		if (i < 50)
+			arch[i] = new Dog;
+		else
+			arch[i] = new Dog;
+	}
+	for (int i = 0; i < 100; i++)
+	{
+		delete arch[i];
+	}
+
+	Dog dog1;
+	dog1.getBrain()->ideas[0] = "Bone";
+	Dog dog2 = dog1;
+	std::cout << "dog1: " << dog1.getBrain()->ideas[0] << " " << dog1.getBrain() << std::endl;
+	std::cout << "dog2: " << dog2.getBrain()->ideas[0] << " " << dog2.getBrain() << std::endl;
 }
