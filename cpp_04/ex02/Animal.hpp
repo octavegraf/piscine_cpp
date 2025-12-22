@@ -4,13 +4,14 @@
 
 class Animal : public Brain
 {
-	protected:
+	public:
 		Animal();
 		Animal(const Animal &other);
 		Animal &operator=(const Animal &other);
-		virtual ~Animal();
+		virtual ~Animal() = 0;
 		virtual void makeSound() const;
 		virtual std::string getType() const;
+	protected:
 		std::string type;
 	private:
 };

@@ -1,6 +1,6 @@
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -Wshadow -std=c++98
-NAME				=	AbstractClass
+NAME				=	InterfaceRecap
 FILES				=	main AMateria Character Cure Ice MateriaSource
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/

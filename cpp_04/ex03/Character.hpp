@@ -1,16 +1,23 @@
 #pragma once
+
 #include <iostream>
+#include "ICharacter.hpp"
 #include "AMateria.hpp"
 
 class Character : public ICharacter
 {
-	public:
-		Character(std::string _name);
-		~Character();
-		std::string const & getName() const override;
-		void equip(AMateria* m) override;
-		void unequip(int idx) override;
-		void use(int idx, ICharacter& target) override;
-	private:
-		std::string name;
+private:
+	std::string name;
+	AMateria* inventory[4];
+
+public:
+	Character(std::string const & name);
+	Character(const Character& src);
+	Character& operator=(const Character& src);
+	~Character();
+
+	std::string const & getName() const;
+	void equip(AMateria* m);
+	void unequip(int idx);
+	void use(int idx, ICharacter& target);
 };
