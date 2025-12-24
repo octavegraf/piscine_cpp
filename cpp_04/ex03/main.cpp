@@ -2,27 +2,34 @@
 #include "Ice.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include "AvoidLeaks.hpp"
 
 int main()
 {
+	AvoidLeaks *leakManager = new AvoidLeaks();
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
-	std::cout << me->getName() << ": " << me << std::endl;
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
+	leakManager->store(tmp);
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	leakManager->store(tmp);
 	AMateria* clone = tmp->clone();
+	leakManager->store(clone);
 	std::cout << "tmp: " << tmp->getType() << ", " << tmp << std::endl;
 	std::cout << "clone: " << clone->getType() << ", " << clone << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
+	leakManager->store(tmp);
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	leakManager->store(tmp);
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	leakManager->store(tmp);
 	me->equip(tmp);
 	me->unequip(3);
 	me->unequip(5);
@@ -38,6 +45,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	delete clone;
+	delete leakManager;
 return 0;
 }

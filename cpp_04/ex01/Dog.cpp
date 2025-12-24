@@ -4,12 +4,14 @@ Dog::Dog()
 {
 	type = "Dog";
 	brain = new Brain;
+	std::cout << type << " constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &other)
 {
 	brain = NULL;
 	*this = other;
+	std::cout << type << " copy constructor called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other)
@@ -26,6 +28,7 @@ Dog &Dog::operator=(const Dog &other)
 
 Dog::~Dog()
 {
+	std::cout << type << " destructor called" << std::endl;
 	delete brain;
 }
 

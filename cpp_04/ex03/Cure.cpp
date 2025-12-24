@@ -2,14 +2,19 @@
 #include "ICharacter.hpp"
 
 Cure::Cure() : AMateria("cure")
-{}
+{
+	std::cout << "cure constructor called" << std::endl;
+}
 
 Cure::~Cure()
-{}
+{
+	std::cout << "cure destructor called" << std::endl;
+}
 
 Cure::Cure(const Cure &other) : AMateria("cure")
 {
 	*this = other;
+	std::cout << "cure copy constructor called" << std::endl;
 }
 
 Cure &Cure::operator=(const Cure &other)

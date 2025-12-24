@@ -1,14 +1,19 @@
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice")
-{}
+{
+	std::cout << "ice constructor called" << std::endl;
+}
 
 Ice::~Ice()
-{}
+{
+	std::cout << "ice destructor called" << std::endl;
+}
 
 Ice::Ice(const Ice &other) : AMateria("ice")
 {
 	*this = other;
+	std::cout << "ice copy constructor called" << std::endl;
 }
 
 Ice &Ice::operator=(const Ice &other)

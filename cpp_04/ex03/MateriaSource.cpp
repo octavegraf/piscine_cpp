@@ -4,6 +4,7 @@ MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		learned[i] = NULL;
+	std::cout << "MateriaSource constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& src)
@@ -15,6 +16,7 @@ MateriaSource::MateriaSource(const MateriaSource& src)
 		else
 			learned[i] = NULL;
 	}
+	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& src)
@@ -36,6 +38,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& src)
 
 MateriaSource::~MateriaSource()
 {
+	std::cout << "MateriaSource destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (learned[i])

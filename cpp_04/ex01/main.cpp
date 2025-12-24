@@ -10,7 +10,7 @@ int main()
 		if (i < 50)
 			arch[i] = new Dog;
 		else
-			arch[i] = new Dog;
+			arch[i] = new Cat;
 	}
 	for (int i = 0; i < 100; i++)
 	{

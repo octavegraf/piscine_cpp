@@ -19,5 +19,10 @@ int main()
 	meta->makeSound();
 	k->makeSound();
 	metatchoum->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+	delete k;
+	delete metatchoum;
 	return (0);
 }

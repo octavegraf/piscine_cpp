@@ -7,6 +7,7 @@ Character::Character(std::string const & name) : name(name)
 		inventory[i] = NULL;
 		std::cout << name << " inventory slot " << i << " address: " << inventory[i] << std::endl;
 	}
+	std::cout << "Character constructor called" << std::endl;
 }
 
 Character::Character(const Character& src) : name(src.name)
@@ -18,6 +19,7 @@ Character::Character(const Character& src) : name(src.name)
 		else
 			inventory[i] = NULL;
 	}
+	std::cout << "Character copy constructor called" << std::endl;
 }
 
 Character& Character::operator=(const Character& src)
@@ -40,6 +42,7 @@ Character& Character::operator=(const Character& src)
 
 Character::~Character()
 {
+	std::cout << "Character destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i])

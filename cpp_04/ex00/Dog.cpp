@@ -3,11 +3,13 @@
 Dog::Dog()
 {
 	type = "Dog";
+	std::cout << type << " constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &other)
 {
 	*this = other;
+	std::cout << type << " copy constructor called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other)
@@ -20,7 +22,9 @@ Dog &Dog::operator=(const Dog &other)
 }
 
 Dog::~Dog()
-{}
+{
+	std::cout << type << " destructor called" << std::endl;
+}
 
 void Dog::makeSound() const
 {

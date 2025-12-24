@@ -3,11 +3,13 @@
 Animal::Animal()
 {
 	type = "Animal";
+	std::cout << type << " constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &other)
 {
 	*this = other;
+	std::cout << type << " copy constructor called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &other)
@@ -20,11 +22,8 @@ Animal &Animal::operator=(const Animal &other)
 }
 
 Animal::~Animal()
-{}
-
-void Animal::makeSound() const
 {
-	std::cout << "« ... »" << std::endl;
+	std::cout << type << " destructor called" << std::endl;
 }
 
 std::string Animal::getType() const
