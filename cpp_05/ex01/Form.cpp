@@ -74,7 +74,7 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 	}
 	catch (const Form::GradeTooLowException& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << bureaucrat.getName() << " couldn't sign " << name << " because " << e.what() << std::endl;
 		return ;
 	}
 	isSigned = true;
@@ -82,12 +82,12 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("Form::GradeTooHighException: Grade is too high.");
+	return ("Grade is too high.");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("Form::GradeTooLowException: Grade is too low.");
+	return ("Grade is too low.");
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &form)

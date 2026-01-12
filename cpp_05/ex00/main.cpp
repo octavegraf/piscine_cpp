@@ -15,8 +15,22 @@ int main(void)
 	delete B;
 
 	// Exception initialisation test tests
-	Bureaucrat C("C", 0);
-	Bureaucrat D("D", 151);
+	try
+	{
+		Bureaucrat C("C", 0);
+	}
+	catch (const Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat D("D", 151);
+	}
+	catch (const Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	// Exception increment / decrement tests
 	Bureaucrat E("E", 1);

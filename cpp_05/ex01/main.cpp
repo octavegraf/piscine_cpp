@@ -33,17 +33,18 @@ int main(void)
 	std::cout << *F << std::endl;
 	F->beSigned(*B);
 	B->signForm(*F);
+	Form G("G", 44, 100);
+	B->signForm(G);
 	delete B;
 	delete F;
-
 	// Trying limits
 	try
 	{
-		Form G("G", 150, 151);
+		Form H("H", 150, 151);
 	}
 	catch (const Form::GradeTooLowException& e)
 	{
-		std::cerr << "Error creating G: " << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	try
 	{
@@ -51,7 +52,7 @@ int main(void)
 	}
 	catch (const Form::GradeTooLowException& e)
 	{
-		std::cerr << "Error creating H: " << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return (0);
 }

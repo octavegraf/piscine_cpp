@@ -7,6 +7,9 @@ class Form;
 
 class Bureaucrat
 {
+	private:
+		const std::string name;
+		int grade;
 	public:
 		Bureaucrat(const std::string Name, int Grade);
 		Bureaucrat(const Bureaucrat &other);
@@ -17,11 +20,6 @@ class Bureaucrat
 		std::string getName() const;
 		int getGrade() const;
 		void signForm(Form &form) const;
-
-	private:
-		const std::string name;
-		int grade;
-
 	class GradeTooHighException : public std::exception
 	{
 		public:
