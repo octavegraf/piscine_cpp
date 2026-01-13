@@ -3,7 +3,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 	private:
 		// const std::string name;
@@ -12,9 +12,9 @@ class ShrubberyCreationForm : public AForm
 		const int execGrade;
 		const std::string target;
 	public:
-		ShrubberyCreationForm(const std::string &_target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &other);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-		~ShrubberyCreationForm();
+		RobotomyRequestForm(const std::string &_target);
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+		~RobotomyRequestForm();
 		void execute(const Bureaucrat &executor) const;
 };

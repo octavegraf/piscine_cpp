@@ -1,6 +1,6 @@
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -Wshadow -std=c++98
-NAME				=	FormUpMaggots
+NAME				=	NoYouNeedForm28BNot28C
 FILES				=	main AForm Bureaucrat ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
