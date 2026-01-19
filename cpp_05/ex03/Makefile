@@ -1,6 +1,6 @@
 CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -Wshadow -std=c++98
-NAME				=	NoYouNeedForm28BNot28C
+NAME				=	AtLeastThisBeatsCoffeeMaking
 FILES				=	main AForm Bureaucrat Intern PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/

@@ -1,16 +1,14 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &_target) : AForm("RobotomyRequestForm", 72, 45), signGrade(72), execGrade(45), target(_target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &_target) : AForm("RobotomyRequestForm", 72, 45), target(_target)
 {
 	#ifdef DEBUG
 		std::cout << "RobotomyRequestForm constructor called." << std::endl;
 	#endif
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), signGrade(other.signGrade), execGrade(other.execGrade), target(other.target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), target(other.target)
 {
-	if (signGrade != other.signGrade || execGrade != other.execGrade)
-		throw AForm::GradeTooHighException();
 	#ifdef DEBUG
 		std::cout << "RobotomyRequestForm copy constructor called." << std::endl;
 	#endif
@@ -20,8 +18,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 {
 	if (this != &other)
 	{
-		if (signGrade != other.signGrade || execGrade != other.execGrade)
-			throw AForm::GradeTooHighException();
 		AForm::operator=(other);
 	}
 	#ifdef DEBUG

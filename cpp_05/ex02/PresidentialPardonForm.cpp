@@ -1,16 +1,14 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &_target) : AForm("PresidentialPardonForm", 25, 5), signGrade(25), execGrade(5), target(_target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &_target) : AForm("PresidentialPardonForm", 25, 5), target(_target)
 {
 	#ifdef DEBUG
 		std::cout << "PresidentialPardonForm constructor called." << std::endl;
 	#endif
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), signGrade(other.signGrade), execGrade(other.execGrade), target(other.target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), target(other.target)
 {
-	if (signGrade != other.signGrade || execGrade != other.execGrade)
-		throw AForm::GradeTooHighException();
 	#ifdef DEBUG
 		std::cout << "PresidentialPardonForm copy constructor called." << std::endl;
 	#endif
@@ -20,8 +18,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 {
 	if (this != &other)
 	{
-		if (signGrade != other.signGrade || execGrade != other.execGrade)
-			throw AForm::GradeTooHighException();
 		AForm::operator=(other);
 	}
 	#ifdef DEBUG

@@ -6,10 +6,6 @@
 class PresidentialPardonForm : public AForm
 {
 	private:
-		// const std::string name;
-		// bool isSigned;
-		const int signGrade;
-		const int execGrade;
 		const std::string target;
 	public:
 		PresidentialPardonForm(const std::string &_target);

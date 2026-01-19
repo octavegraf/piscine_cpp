@@ -1,16 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &_target) : AForm("ShrubberyCreationForm", 145, 137), signGrade(145), execGrade(137), target(_target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &_target) : AForm("ShrubberyCreationForm", 145, 137), target(_target)
 {
 	#ifdef DEBUG
 		std::cout << "ShrubberyCreationForm constructor called." << std::endl;
 	#endif
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), signGrade(other.signGrade), execGrade(other.execGrade), target(other.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), target(other.target)
 {
-	if (signGrade != other.signGrade || execGrade != other.execGrade)
-		throw AForm::GradeTooHighException();
 	#ifdef DEBUG
 		std::cout << "ShrubberyCreationForm copy constructor called." << std::endl;
 	#endif
@@ -20,8 +18,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	if (this != &other)
 	{
-		if (signGrade != other.signGrade || execGrade != other.execGrade)
-			throw AForm::GradeTooHighException();
 		AForm::operator=(other);
 	}
 	#ifdef DEBUG
