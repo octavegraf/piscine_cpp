@@ -19,9 +19,9 @@ void ScalarConverter::convert(std::string scalar)
 	scalarType type = detectType(scalar);
 	char c = 0; float f = 0; double d = 0;
 	#ifdef DEBUG
-		std::cout << "Input: \"" << scalar << "\"" << std::endl;
+	std::cout << "Input: \"" << scalar << "\"" << std::endl;
 	#endif
-	// conversion
+	// Conversion
 	switch (type)
 	{
 		case CHAR:
@@ -56,7 +56,7 @@ void ScalarConverter::convert(std::string scalar)
 			break;
 	}
 	#ifdef DEBUG
-		std::cout << "Type: " << type << std::endl;
+	std::cout << "Type: " << type << std::endl;
 	#endif
 	printScalar(type, scalar, c, f, d);
 }
@@ -84,7 +84,7 @@ scalarType ScalarConverter::detectType(std::string scalar)
 	if (scalar[0] == '-' || scalar[0] == '+')
 		i++;
 	if (isFloat)
-		size--;
+		size--; // Removes the ending 'f' of float numbers.
 	for (; i < (size); i++)
 	{
 		if (!isdigit(scalar[i]))
