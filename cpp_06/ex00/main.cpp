@@ -1,41 +1,19 @@
-#include "Bureaucrat.hpp"
+#include "ScalarConverter.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
-	Bureaucrat *B = new Bureaucrat("B", 100);
-	
-	// cout test."
-	std::cout << *B << std::endl;
-
-	// Increment / decrement test
-	B->increment();
-	std::cout << *B << std::endl;
-	B->decrement();
-	std::cout << *B << std::endl;
-	delete B;
-
-	// Exception initialisation test tests
-	try
+	ScalarConverter *converter = NULL;
+	if (argc == 2)
+		converter->convert(argv[1]);
+	else
 	{
-		Bureaucrat C("C", 0);
+		std::cout << "/!\\ If you want to make your own tests, run program with one argument." << std::endl;
+		converter->convert("A");
+		converter->convert("0");
+		converter->convert("nan");
+		converter->convert("42.0f");
+		converter->convert("42..0f");
+		converter->convert("2147483648");
+		converter->convert("42 a fait miroiter un GPU Nvidia pour au final jamais le donner");
 	}
-	catch (const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
-		Bureaucrat D("D", 151);
-	}
-	catch (const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	// Exception increment / decrement tests
-	Bureaucrat E("E", 1);
-	E.increment();
-	Bureaucrat F("F", 150);
-	F.decrement();
-	return (0);
 }
