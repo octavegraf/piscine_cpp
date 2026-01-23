@@ -1,19 +1,17 @@
-#include "ScalarConverter.hpp"
+#include "Serialization.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	ScalarConverter *converter = NULL;
-	if (argc == 2)
-		converter->convert(argv[1]);
-	else
-	{
-		std::cout << "/!\\ If you want to make your own tests, run program with one argument." << std::endl;
-		converter->convert("A");
-		converter->convert("0");
-		converter->convert("nan");
-		converter->convert("42.0f");
-		converter->convert("42..0f");
-		converter->convert("2147483648");
-		converter->convert("42 a fait miroiter un GPU Nvidia pour au final jamais le donner");
-	}
+	struct Data data;
+	data.i = 42;
+	uintptr_t raw = 0;
+	Serialization converter;
+	std::cout << "Data address: " << &data << std::endl;
+	std::cout << "Data->i value: " << data.i << std::endl;
+	std::cout << "uintptr_t address: " << raw << std::endl;
+	raw = converter.serialize(&data);
+	std::cout << "Serialized Data address: " << raw << std::endl;
+	data = *converter.deserialize(raw);
+	std::cout << "Deserialized Data address: " << converter.deserialize(raw) << std::endl;
+	std::cout << "Data->i value: " << data.i << std::endl;
 }

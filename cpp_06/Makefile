@@ -1,4 +1,4 @@
-SRC_FOLDER			=	ex00/ ex01/ ex02/ ex03
+SRC_FOLDER			=	ex00/ ex01/ ex02
 
 all					:
 	@for dir in $(SRC_FOLDER); do $(MAKE) -s -C $$dir all; done
