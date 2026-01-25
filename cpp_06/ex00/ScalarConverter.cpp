@@ -125,7 +125,7 @@ void ScalarConverter::printScalar(scalarType type, std::string scalar, char c, f
 	if (type == SPECIAL || type == UNDEFINED || d < INT_MIN || d > INT_MAX)
 		std::cout << IMPOSSIBLE << std::endl;
 	else
-		std::cout << d << std::endl;
+		std::cout << static_cast<int>(c) << std::endl;
 
 	std::cout << "Float: ";
 	if (type == SPECIAL)
