@@ -10,8 +10,8 @@ struct Data
 class Serialization
 {
 	private:
-	public:
 		Serialization();
+	public:
 		virtual ~Serialization();
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);

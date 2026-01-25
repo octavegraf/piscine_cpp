@@ -19,10 +19,10 @@ enum scalarType
 class ScalarConverter
 {
 	private:
+		ScalarConverter();
 		static scalarType detectType(std::string scalar);
 		static void printScalar(scalarType type, std::string scalar, char c, float f, double d);
 	public:
-		ScalarConverter();
 		virtual ~ScalarConverter();
 		static void convert(std::string scalar);
 };
