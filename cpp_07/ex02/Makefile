@@ -2,8 +2,7 @@ CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -Wshadow -std=c++98
 NAME				=	Array
 FILES				=	main
-HEADER				=	Array.hpp
-TPP			=	Array.tpp
+TPP					=	Array.tpp
 SRC					=	$(addsuffix .cpp, $(FILES))
 OBJ_FOLDER			=	objects/
 OBJ					=	$(addprefix $(OBJ_FOLDER), $(SRC:.cpp=.o))
@@ -13,7 +12,7 @@ all					:	$(NAME)
 $(NAME)				: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ_FOLDER)%.o	: %.cpp $(HEADER) $(TPP)
+$(OBJ_FOLDER)%.o	: %.cpp $(TPP)
 	@mkdir -p $(OBJ_FOLDER)
 	$(CC) $(CFLAGS) -MMD -c $< -o $@
 
