@@ -49,5 +49,9 @@ IdentifyRealType
 
 #cpp_07
 StartWithAFewFunctions
-Iterconstructor
+Iter
 Array
+
+#cpp_08
+EasyFind
+Span

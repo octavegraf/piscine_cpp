@@ -4,7 +4,7 @@ template <typename T>
 Array<T>::Array() : _size(0), _elements(NULL)
 {
 	#ifdef DEBUG
-	std::cout << "Default constructor called." <<  std::endl;
+	std::cout << "Array default constructor called." << std::endl;
 	#endif
 }
 
@@ -12,7 +12,7 @@ template <typename T>
 Array<T>::Array(unsigned int n) : _size(n), _elements(new T[n])
 {
 	#ifdef DEBUG
-	std::cout << "Default constructor called." <<  std::endl;
+	std::cout << "Array default constructor called." << std::endl;
 	#endif
 }
 
@@ -24,7 +24,7 @@ Array<T>::Array(Array const &other)
 	for (unsigned int i = 0; i < _size; i++)
 		_elements[i] = other._elements[i];
 	#ifdef DEBUG
-	std::cout << "Copy constructor called." <<  std::endl;
+	std::cout << "Array copy constructor called." << std::endl;
 	#endif
 }
 
@@ -41,7 +41,7 @@ Array<T> &Array<T>::operator=(Array const &other)
 	}
 	return (*this);
 	#ifdef DEBUG
-	std::cout << "Assignment operator called." <<  std::endl;
+	std::cout << "Array assignment constructor called." << std::endl;
 	#endif
 }
 
@@ -50,7 +50,7 @@ Array<T>::~Array()
 {
 	delete[] _elements;
 	#ifdef DEBUG
-	std::cout << "Destructor called." <<  std::endl;
+	std::cout << "Array destructor called." << std::endl;
 	#endif
 }
 
